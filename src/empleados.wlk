@@ -26,18 +26,42 @@ object gimenez {
 
 object baigorria {
 
+	var sueldo = 1500
+	var dinero = 0
+	var deuda = 0
 	var cantidadEmpanadasVendidas = 100
 	var montoPorEmpanada = 15
 
 	method venderEmpanada() {
 		cantidadEmpanadasVendidas += 1
+		self.calcularSueldo()
+	}
+
+	method calcularSueldo() {
+		sueldo = cantidadEmpanadasVendidas * montoPorEmpanada
 	}
 
 	method sueldo() {
-		return cantidadEmpanadasVendidas * montoPorEmpanada
+		return sueldo
 	}
 
 	method cobrarSueldo() {
+		dinero+=sueldo
+		self.pagarDeudas()
+	}
+
+	method totalDeuda() {
+		return deuda
+	}
+	
+	method totalDinero() {
+		return dinero
+	}
+	method gastar(monto){
+		/////ver que poner
+	}
+	method pagarDeudas(){
+		////ver que poner
 	}
 
 }
@@ -57,4 +81,3 @@ object galvan {
 
 }
 
-//probando el Push
