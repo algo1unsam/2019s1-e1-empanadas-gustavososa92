@@ -45,23 +45,40 @@ object baigorria {
 		return sueldo
 	}
 
+	method sueldo(_sueldo) {
+		sueldo = _sueldo
+	}
+
 	method cobrarSueldo() {
-		dinero+=sueldo
+		dinero += sueldo
 		self.pagarDeudas()
 	}
 
 	method totalDeuda() {
 		return deuda
 	}
-	
+
 	method totalDinero() {
 		return dinero
 	}
-	method gastar(monto){
-		/////ver que poner
+
+	method gastar(monto) {
+		if (monto > dinero) {
+			deuda += monto - dinero
+			dinero = 0
+		} else {
+			dinero -= monto
+		}
 	}
-	method pagarDeudas(){
-		////ver que poner
+
+	method pagarDeudas() {
+		if (dinero > deuda) {
+			dinero -= deuda
+			deuda = 0
+		} else {
+			deuda -= dinero
+			dinero = 0
+		}
 	}
 
 }
